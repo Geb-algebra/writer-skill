@@ -12,4 +12,4 @@ writing-docs-and-articles スキルを使用して、与えられた指示に従
 
 instructions.mdの指示に従って、draft.mdをもとにfinal.mdを完成させてください。
 
-1ディレクトリにつき1つのサブエージェントを起動し、writing-docs-and-articles スキルを使用させて、final.mdを完成させてください。
+すべてのディレクトリに対して、1ディレクトリにつき1つのサブエージェントを起動し、writing-docs-and-articles スキルを使用させて、final.mdを完成させてください。
