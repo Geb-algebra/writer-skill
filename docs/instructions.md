@@ -1,0 +1,1 @@
+resources/cookie にあるcookieライブラリをgithubに公開します。 利用者用のドキュメントを書いてください。
