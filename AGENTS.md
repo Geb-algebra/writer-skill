@@ -2,11 +2,13 @@
 
 文章作成用のスキル `writing-docs-and-articles` を磨いていきます。
 
-スキルは`./writing-docs-and-articles/*` にあります。
+スキルは `writer-skill/writing-docs-and-articles/SKILL.md` にあります。 他の場所にもコピーがありますが、このオリジナル以外は変更しないでください。
 
 ## 注意点
 
 このスキルは、私個人が文章を書くときのスキルであり、一般的な良い文章の書き方に加えて、私の好みやスタイルも含みます。
+
+作業の際は必ず `skill-creator` スキルを使用してください。
 
 ## 作業手順
 
