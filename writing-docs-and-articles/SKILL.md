@@ -1,5 +1,3 @@
-SKILL 圧縮版
-
 ---
 name: writing-docs-and-articles
 description: Converting rough notes into structured human-readable documents (blog posts, reports, docs, emails, chats). Use when writing natural-language documents for humans from notes, drafts, or bullet points.
@@ -13,12 +11,23 @@ description: Converting rough notes into structured human-readable documents (bl
 
 全工程で以下を厳守。
 
-### 情報を足さない・落とさない
+### 入力された情報は全て過不足なく使用する。
 
-作業の入力に書いていない情報を足さない。
-入力に書いてある情報を落とさない。
-行うのは主に並び替え、構成変更。
-ただし、入力にある情報をまとめた要約文の付加は可能。
+作業の入力に書いてある情報は全て過不足なく使う。 入力にない情報を勝手に足したり、入力にある情報を勝手に削除したりしない。
+
+「情報」とは、入力の文章から読み取れる「意味」のこと。
+意味が変わらなければ、文章を書き換えたり、統合・分割したり、順番を入れ替えたりしてもよい。
+しかし、意味が変わる・増える・減る変更は、勝手には行わない。
+
+### 情報の追加・削除は積極的に行うこと。ただし必ずユーザーに確認してから行う。
+
+構成する上で情報の追加または削除が必要である場合、ユーザーに変更を提案し、承認されたり追加の指示があったりした情報のみを追加・削除する。
+入力情報は大抵不完全であるから、追加・削除の提案は積極的に行うこと。
+
+ただし、以下の情報追加・削除のみ、許可なく可能。
+
+- 入力にある情報をまとめた要約文の追加（追加の情報を一切含まない）
+- 入力の情報を説明するためのコードサンプルの付加
 
 ### 作業 → レビュー → 修正 → ユーザレビュー
 
