@@ -17,7 +17,7 @@ description: Create a draft that communicates the given main message to the read
 ## 原則
 
 ###  **Barbara Minto の Pyramid Principle**
-- 導入は SCQA（Situation, Complication, Question, Answer）で構成する。 Answerは与えられたメインメッセージと一致。
+- 導入は SCQA（Situation, Complication, Question, Answer）で構成する。 Answerは与えられたメインメッセージをそのまま使用する。
 - その後、Answerを支える主張をツリー構造の箇条書きで構成する。
 - ツリーの親ノードは子ノードの要約。 親ノードを読んだだけでその子孫含めたサブツリー全体の主張が理解できるようにする。
 - 同階層の要素は同種の主張に揃える
@@ -43,7 +43,7 @@ description: Create a draft that communicates the given main message to the read
   - 必ず直後にその単語の具体的な意味を説明する。 例）`これは非常に重要なポイントです。なぜ重要かというと...`, `これらの課題を解決するのが "アジャイル開発" です。 アジャイル開発とは、...`
 - ユーザーが明示的に許可した場合。 この場合、ユーザーが指定した使用範囲以外では使用しない。
 
-### 情報量の許可なき変更の禁止
+### 必要な情報の追加・不要な情報の削除は積極的に行う。ただし、必ずユーザーに許可を取った後。
 
 ユーザーから提供された情報を、確認なしに以下のように変更することは禁止。
 
@@ -52,7 +52,13 @@ description: Create a draft that communicates the given main message to the read
 
 以下は独断で行なって良い: 並び替え・グルーピング・階層化・上位ノード作成のための最小限の要約
 
-重要： 対話の中で、ユーザーに情報の追加・削除を求め、それを追加・削除することは、**必ず行う**。 ユーザーの最初の入力に、原則に従って文章を書くのに足りない情報・余計な情報は必ず存在する。 これをユーザーに指摘し、必要な情報の追加・不要な情報の削除を求めることは、**最重要の責務**である。
+情報量の変更を行う場合は、必ずユーザーに確認し、許可を得ること。 
+
+重要： 対話の中で、ユーザーに情報の追加・削除を求め、それを追加・削除することは、**あなたの最重要の責務である**。 
+- ユーザーの最初の入力に、原則に従って文章を書くのに足りない情報・余計な情報は必ず存在する。
+- これをユーザーに指摘し、必要な情報の追加・不要な情報の削除を求めることは、**最重要の責務**である。 
+- 情報の追加削除要求は大規模でも構わない。 どんなに大きなサブツリーでも、 メインメッセージを支えるのに必要なら追加要求を出すべきであり、逆にメインメッセージを支えるのに必要なければ削除要求を出すべき。
+- メインメッセージと与えられた材料が全く合致しない場合は、メインメッセージの変更をユーザーに提案すべき。 
 
 ## 出力形式
 
@@ -69,7 +75,6 @@ description: Create a draft that communicates the given main message to the read
 - {Question}
     - {Additional Information}
 - {Answer}
-    - {Additional Information}
 
 ## Content
 
@@ -88,6 +93,8 @@ description: Create a draft that communicates the given main message to the read
 ```
 
 整理結果はIntroductionおよびContentの2節に配置。 加えて、要修正箇所（構成に迷う・うまく構成できていない・情報の追加削除が必要）をIssuesに列挙する。
+
+Answerは与えられたメインメッセージをそのまま使用すること。 Answerは簡潔であるべきなので、Additional InformationはAnswerには含めない。 Answerを支える理由・根拠はContentに配置。
 
 ## 進め方（対話型フロー）
 
