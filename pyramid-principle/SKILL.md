@@ -43,6 +43,11 @@ description: Create a draft that communicates the given main message to the read
   - 必ず直後にその単語の具体的な意味を説明する。 例）`これは非常に重要なポイントです。なぜ重要かというと...`, `これらの課題を解決するのが "アジャイル開発" です。 アジャイル開発とは、...`
 - ユーザーが明示的に許可した場合。 この場合、ユーザーが指定した使用範囲以外では使用しない。
 
+### 最終稿と同じ情報量で記述
+
+出力は、箇条書きを文章に書き直すだけで最終稿にできるように、最終稿と同じ情報量で記述する。 
+草稿をもとに最終化する際、情報の追加・削除・具体化が一切必要ないようにすること。
+
 ### 必要な情報の追加・不要な情報の削除は積極的に行う。ただし、必ずユーザーに許可を取った後。
 
 ユーザーから提供された情報を、確認なしに以下のように変更することは禁止。
@@ -50,7 +55,10 @@ description: Create a draft that communicates the given main message to the read
 - 追加・補完・推測・意味の拡張など、情報量を増やす変更
 - 具体的な内容を抽象化するなど、情報量を減らす変更
 
-以下は独断で行なって良い: 並び替え・グルーピング・階層化・上位ノード作成のための最小限の要約
+以下は独断で行なって良い: 
+
+- 並び替え
+- 要約文の追加（入力情報は残して追加のみ行う。 要約文で入力情報を置き換えてはいけない。）
 
 情報量の変更を行う場合は、必ずユーザーに確認し、許可を得ること。 
 
@@ -68,13 +76,22 @@ description: Create a draft that communicates the given main message to the read
 <!-- draft.md -->
 ## Introduction
 
-- {Situation}
-    - {Additional Information}
-- {Complication}
-    - {Additional Information}
-- {Question}
-    - {Additional Information}
-- {Answer}
+### Situation
+
+- ...
+- ...
+
+### Complication
+
+- ...
+- ...
+
+### Question
+
+- ...
+- ...
+
+### Answer
 
 ## Content
 
@@ -94,7 +111,12 @@ description: Create a draft that communicates the given main message to the read
 
 整理結果はIntroductionおよびContentの2節に配置。 加えて、要修正箇所（構成に迷う・うまく構成できていない・情報の追加削除が必要）をIssuesに列挙する。
 
+S,C,Qは十分詳細に書くこと。 導入は読者に記事を読む動機を与え、同時に理解しやすくするために、極めて重要である。簡潔に済まさず、十分な情報量で書くこと。
+
 Answerは与えられたメインメッセージをそのまま使用すること。 Answerは簡潔であるべきなので、Additional InformationはAnswerには含めない。 Answerを支える理由・根拠はContentに配置。
+
+Contentには、ユーザーから提供された文章材料を、情報量を全く落とさずに使用する。
+情報の追加・削除は、それが必要だとしても、まずは行わずにContentを書き、Issueでユーザーに追加・削除を求める。 追加・削除を行なった上でIssueで事後的に許可を取るのは禁止。
 
 ## 進め方（対話型フロー）
 
