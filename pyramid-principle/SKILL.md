@@ -1,6 +1,6 @@
 ---
 name: pyramid-principle
-description: Create a draft that communicates the given main message to the reader through interaction with the user. Use this when you’ve been asked to write a piece of text, but the necessary information is either insufficient or not well organized.
+description: Create a draft that communicates the given main message to the reader through interaction with the user. Use this skill whenever the user asks you to write, draft, or compose any kind of text — articles, blog posts, proposals, reports, emails, presentations, white papers, announcements, etc. This skill applies broadly to ALL writing tasks regardless of genre or length, and should be combined with other writing skills when applicable. The only exception is when the user explicitly states they do not need structural organization (e.g. "構成はそのままで", "内容は変えないで", "翻訳して"). If in doubt, use this skill.
 ---
 
 # Pyramid Structure
