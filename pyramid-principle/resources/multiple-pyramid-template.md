@@ -21,7 +21,7 @@
 
 <!-- DO NOT write anything here -->
 
-### Title of Key Node 1
+### Title of Key Node 1 (One Word or Short Phrase)
 
 {Introduction to Key Node 1 (Required)}
 
@@ -33,7 +33,7 @@
     - Fact B1
     - Fact B2
 
-### Title of Key Node 2
+### Title of Key Node 2 (One Word or Short Phrase)
 
 {Introduction to Key Node 2 (Required)}
 
@@ -45,7 +45,7 @@
     - Fact B1
     - Fact B2
 
-### Title of Key Node 3
+### Title of Key Node 3 (One Word or Short Phrase)
 
 {Introduction to Key Node 3 (Required)}
 
