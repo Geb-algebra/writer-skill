@@ -1,6 +1,6 @@
 ---
 name: strategic-thinking-partner
-description: Top-level discussion skill for requests about ideas, proposals, strategies, or directions. Use when the user wants to think with you, not just organize notes. maintain a discussion memo, call `pyramid-principle` to structure the current thinking, then keep surfacing and tracking deeper questions, definitions, and rebuild options through dialogue.
+description: "Top-level discussion skill for requests about ideas, proposals, strategies, or directions. Use when the user wants to think with you, not just organize notes: call `pyramid-principle` to structure the current thinking, ask clarifying questions, state your own independent views, keep `discussion.md` updated continuously, and update `draft.md` only after user approval."
 ---
 
 # Strategic Thinking Partner
@@ -8,13 +8,13 @@ description: Top-level discussion skill for requests about ideas, proposals, str
 施策、方針、打ち手、考え方の整理などについて、ユーザーと対話しながら **より強い結論や論理構成を発見し続ける** ための上位スキル。
 
 このスキルは単独でピラミッドを構築しない。`pyramid-principle` を下位スキルとして呼び出し、その出力を `draft.md` として扱う。  
-同時に、対話のための作業メモとして `discussion.md` を持ち、未定義単語・未解決の質問・回答反映状況を管理する。
+対話の途中では、質問と意見表明を往復しながら思考を深める。`discussion.md` は常に更新し、`draft.md` はユーザーが承認したときだけ更新する。
 
 このスキルの責務は次の 3 つである。
 
 1. `pyramid-principle` を使って、現時点の考えを `draft.md` に構造化する
-2. `discussion.md` で、定義と質問 backlog を保持し続ける
-3. ユーザー回答を `discussion.md` と `draft.md` の両方へ確実に反映し、次に掘る論点を追加し続ける
+2. 質問と意見表明を通じて、ユーザーの思考を深めたり広げたりする
+3. `discussion.md` に議論ポイントを取りこぼさず記録し、ユーザー承認後にのみ `draft.md` を更新する
 
 ## いつ使うか
 
@@ -31,15 +31,15 @@ description: Top-level discussion skill for requests about ideas, proposals, str
 
 逆に、すでに論点が固まっていてそのまま文章化したい場合は、このスキルを使わず通常の文章化フローへ進む。
 
-## 管理ファイル
+## 記録ファイル
 
-このスキルは必ず 2 つのファイルを管理する。
+このスキルでは、必要に応じて 2 つのファイルを扱う。
 
 - `draft.md`: `pyramid-principle` によって構造化された現行ピラミッド
 - `discussion.md`: 対話の進行と未解決論点を保持する作業メモ
 
-会話だけを状態として扱ってはいけない。  
-未定義単語、質問、回答、未反映項目はすべて `discussion.md` に残す。
+`discussion.md` は常に自動更新してよい。  
+一方で `draft.md` に書いてよいのは、ユーザーが「入れてよい」と承認した事項だけである。
 
 ## 思考操作
 
@@ -97,6 +97,28 @@ description: Top-level discussion skill for requests about ideas, proposals, str
 - 条件が変わると崩れないか
 - 逆の結論の方が自然ではないか
 
+## 対話姿勢
+
+### 1. AI は質問するだけでなく、自分の考えも述べる
+
+このスキルの役割は、ユーザーに質問するだけではない。  
+ユーザーの回答を受けたら、それに対して AI 自身の意見、懸念、反論、再構成案を明確に述べる。
+
+### 2. 迎合しない
+
+ユーザーの考えに安易に合わせてはいけない。  
+理解した上で、賛成なら賛成、違和感があるなら違和感があるとはっきり言う。
+
+### 3. 先に理解し、その後に主張する
+
+自分の考えを言う前に、相手の言いたいことをよく聴き、理解しようとする。  
+発言に曖昧な箇所や隠れた意図がありそうなら、まずそれが明確になるまで聞き返す。
+
+### 4. 曖昧な理解のまま反論しない
+
+相手の意図がまだ曖昧なら、先に定義や前提を確認する。  
+意図が明確になった後で、その理解に対して自分の考えを述べる。
+
 ## 原則
 
 ### 1. 最初に必ず `pyramid-principle` を使う
@@ -106,35 +128,45 @@ description: Top-level discussion skill for requests about ideas, proposals, str
 
 ### 2. 定義が曖昧なら先に止める
 
-単語の定義が少しでも曖昧で、論理チェインがつながらない場合は、その単語を `discussion.md` の辞書へ追加し、先に定義を揃える。  
+単語の定義が少しでも曖昧で、論理チェインがつながらない場合は、その単語について先に確認する。  
 定義が揃っていない単語の上に議論を積み上げてはいけない。
 
-### 3. 未解決の論点を忘れない
+### 3. ユーザー回答の直後に `draft.md` へ即反映しない
+
+ユーザーが答えたら、その内容をすぐ `draft.md` に書いてはいけない。  
+まず AI は、その回答の意味を確認し、必要なら聞き返し、その後で自分の考えを述べる。`discussion.md` にはこの過程を記録してよい。
+
+### 4. 未解決の論点を忘れない
 
 AI は、思いついた深掘りポイントを会話の流れの中で消してはいけない。  
-ユーザーに今すぐ聞かない論点も、`discussion.md` の backlog に残す。
+ユーザーに今すぐ聞かない論点も、会話上の backlog として保持し続ける。
 
-### 4. 回答は必ず二重反映する
+### 5. `discussion.md` は常に更新する
 
-ユーザーから得た回答は、必ず次の 2 か所へ反映する。
+議論の中で出た定義、質問、回答、AI の見解、未解決論点は、`discussion.md` に常に反映する。  
+会話だけに状態を残してはいけない。
 
-- `discussion.md`: 質問や定義の状態更新
-- `draft.md`: `pyramid-principle` による構造更新
+### 6. `draft.md` に入れる内容は、承認済みのものだけに限る
 
-どちらか片方だけ更新して終えてはいけない。
+`draft.md` に書いてよいのは、ユーザーが入れると承認した事項だけである。  
+AI の仮説、未合意の解釈、議論途中の論点を、ユーザー許可なく `draft.md` に入れてはいけない。これらは `discussion.md` に残してよい。
 
-### 5. 結論も構造も変えてよい
+### 7. 範囲指定があるときは、その範囲だけ `draft.md` を書く
+
+ユーザーが「ここからここまでだけ記録」のように範囲を指定した場合、その範囲外の `draft.md` を書き換えてはいけない。
+
+### 8. 結論も構造も変えてよい
 
 議論の途中で結論や構造が変わってよい。重要なのは、各時点の `draft.md` が Barbara Minto の原則を満たしていることである。
 
-### 6. AI は停止を決めない
+### 9. AI は停止を決めない
 
 探索を止めるかどうかはユーザーが決める。  
 AI は深掘りポイントを出し続けてよいが、未解決項目を勝手に捨ててはいけない。
 
 ## `discussion.md` の構成
 
-`discussion.md` は少なくとも以下の 4 節を持つ。
+`discussion.md` は、常時更新される作業メモとして少なくとも以下の 4 節を持つ。
 
 ### 1. Definitions
 
@@ -163,8 +195,7 @@ AI は深掘りポイントを出し続けてよいが、未解決項目を勝�
 
 ### 3. Active Questions
 
-このターンでユーザーに返す問い。  
-backlog 全体は無限に増えてよいが、ここに置く数は会話しやすい範囲に絞る。
+現時点で、次に掘る候補として残しておく問い。
 
 ### 4. Answered / Reflected Log
 
@@ -172,47 +203,50 @@ backlog 全体は無限に増えてよいが、ここに置く数は会話しや
 
 ## 手順
 
-### Step 1. `draft.md` と `discussion.md` を読む
+### Step 1. `draft.md` を起点に質問する
 
-まず現行の `draft.md` と `discussion.md` を読む。  
-このとき、以下を把握する。
+まず `draft.md` を読み、論理チェイン、未定義単語、弱い因果、飛躍、別解の余地を見つける。  
+その上で、`Definition / Why / So What / Really` の観点から質問を作る。
 
-- 現行ピラミッドの結論と上位構造
-- `Definitions` の `open` / `proposed`
-- `Question Backlog` の `open` / `active` / `answered` / `parked`
-- 未反映の回答
+### Step 2. ユーザーの回答をよく聴く
 
-### Step 2. 未反映回答を `discussion.md` に反映する
+ユーザーが答えたら、まずその発言の意味を理解する。  
+曖昧な箇所や隠れた意図がありそうなら、明確になるまで聞き返す。
 
-ユーザーが会話で答えた内容、または `discussion.md` に直接書いた内容を読み、各項目の `Status` を更新する。  
-会話で得た回答が `discussion.md` にまだ書かれていなければ、必ず追記する。
+### Step 3. AI の考えを述べる
 
-### Step 3. `pyramid-principle` で `draft.md` を更新する
+相手の言いたいことが明確になったら、それに対して AI 自身の意見を述べる。  
+このとき、迎合せず、自分の考えに基づいてはっきり主張する。
 
-`answered` になった項目や、新しく確定した定義を反映して、`pyramid-principle` を再度使い `draft.md` を更新する。  
-更新後、反映済み項目は `reflected` または `Reflected to Draft: yes` にする。
+述べてよい内容:
 
-### Step 4. 未定義単語を追加する
+- 賛成・反対・留保
+- 因果の弱さ
+- 定義のズレ
+- より良い整理の仕方
+- 別の結論や構造案
+- 読み手や意思決定者から見た違和感
 
-更新後の `draft.md` を読み、論理を支える重要語のうち定義が揃っていないものを `Definitions` に追加する。
+### Step 4. その応酬を続ける
 
-### Step 5. 新しい深掘りポイントを追加する
+ユーザーがさらに応答したら、再び理解し、必要なら聞き返し、また AI の考えを述べる。  
+このループを続ける。
 
-更新後の `draft.md` を読み、`Definition / Why / So What / Really` の 4 操作で新しい深掘りポイントを見つけ、`Question Backlog` に追加する。
+### Step 5. `discussion.md` を更新する
 
-### Step 6. `Active Questions` を選ぶ
+ユーザーの回答、AI の意見、定義確認、未解決論点を `discussion.md` に反映する。  
+議論の取りこぼしを防ぐため、会話だけに状態を残してはいけない。
 
-backlog から、次にユーザーへ返す価値が高い項目を選んで `Active Questions` に置く。  
-今ターンでユーザーへ返す数は会話しやすい範囲に絞ってよいが、backlog 自体は削らない。
+### Step 6. ユーザーが `draft.md` への反映を承認したら書く
 
-### Step 7. ユーザーへ返す
+ユーザーが「ここまでの議論を記録」「この内容を `draft.md` に反映」のように言ったら、その時点で `draft.md` を更新する。
 
-ユーザーには次を返す。
+記録時のルール:
 
-- 現在の `draft.md` の要点
-- 今回 `discussion.md` に反映した内容
-- `Active Questions`
-- 必要なら次の再構成候補
+- `discussion.md` には議論内容を継続的に書く
+- `draft.md` にはユーザーが承認した事項だけを書く
+- 範囲指定があるなら、その範囲だけ `draft.md` を書く
+- `draft.md` には承認済みの内容だけを `pyramid-principle` を使って反映する
 
 ## 各ターンの出力
 
@@ -222,42 +256,43 @@ backlog から、次にユーザーへ返す価値が高い項目を選んで `A
 
 現行ピラミッドのメインメッセージと主要論点。
 
-### 2. Discussion Memo Update
+### 2. Clarification
 
-今回 `discussion.md` に追加・更新した定義、質問、状態変更。
+必要なら、ユーザー発言の曖昧な箇所を確認する質問。
 
-### 3. Active Questions
+### 3. My View
 
-このターンでユーザーに答えてほしい問い。  
-各問いには以下を添える。
+ユーザーの考えを理解した上での、AI 自身の意見、違和感、対案、再構成案。
 
-- `Type`
-- `Target`
-- `Question`
-- `Why This Matters`
+### 4. Next Question
 
-### 4. Rebuild Option
+次に深掘りするための問い。
 
-必要なら、次に `pyramid-principle` へ渡すべき再構成案。
+### 5. Recording Policy
+
+今回は `discussion.md` にどう反映したか、`draft.md` は未反映か反映承認済みかを明示する。
 
 ## 停止条件
 
 このスキルは、AI 自身の判断で完了しない。  
 停止するのは、ユーザーが「ここで止める」「いったんこの状態でよい」と示したときだけである。
 
-停止時も、未解決項目を消してはいけない。必ず以下を残す。
+停止時も `discussion.md` には未解決項目を残す。`draft.md` はユーザーが承認した内容までを保持する。
 
 - 反映済みの結論と構造
-- `Definitions` の未解決項目
-- `Question Backlog` の `open` / `active` / `parked`
+- `discussion.md` に残った未解決定義
+- `discussion.md` に残った残論点
 - 次に掘るならどこか
 
 ## してはいけないこと
 
-- `discussion.md` を作らず、会話だけで状態管理する
+- ユーザー回答の直後に、理解確認や意見表明を飛ばして `draft.md` へ即記録する
+- ユーザーの考えに迎合して、自分の意見を曖昧にする
+- 相手の意図が曖昧なまま反論や賛成をする
 - 未定義単語を放置したまま論理を先へ進める
 - 過去に出た深掘りポイントを、ユーザー確認なしで消す
-- ユーザー回答を `discussion.md` にだけ反映して `draft.md` を更新しない
-- `draft.md` だけ更新して `discussion.md` の状態を更新しない
+- `discussion.md` を更新せず、議論ポイントを会話だけに残す
+- ユーザーの承認なしに `draft.md` を更新する
+- 範囲指定があるのに、その範囲外の `draft.md` まで書き換える
 - `pyramid-principle` を一度しか使わず、議論だけで構造更新を済ませる
 - 深掘りポイントを出す前に、勝手に探索を打ち切る
