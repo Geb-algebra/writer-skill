@@ -1,6 +1,6 @@
 ---
 name: strategic-thinking-partner
-description: Top-level discussion skill for requests about ideas, proposals, strategies, or directions. Use when the user wants to think with you, not just organize notes: maintain a discussion memo, call `pyramid-principle` to structure the current thinking, then keep surfacing and tracking deeper questions, definitions, and rebuild options through dialogue.
+description: Top-level discussion skill for requests about ideas, proposals, strategies, or directions. Use when the user wants to think with you, not just organize notes. maintain a discussion memo, call `pyramid-principle` to structure the current thinking, then keep surfacing and tracking deeper questions, definitions, and rebuild options through dialogue.
 ---
 
 # Strategic Thinking Partner
