@@ -1,5 +1,5 @@
 ---
-name: strategic-thinking-partner
+name: discussion-partner
 description: "Top-level discussion skill for requests about ideas, proposals, strategies, or directions that need both deep discussion and explicit record-keeping. Use when the user wants to think with you, not just organize notes: run either `discussion mode` for user-vs-AI dialogue or `delegate mode` for AI-vs-subagent autonomous discussion, call `deep-thinker` for the dialogue itself, call `pyramid-principle` to structure the current thinking, keep `discussion.md` updated continuously, and update `draft.md` according to the active mode's approval rule."
 ---
 
