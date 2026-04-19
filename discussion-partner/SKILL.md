@@ -1,6 +1,6 @@
 ---
 name: discussion-partner
-description: "Top-level discussion skill for requests about ideas, proposals, strategies, or directions that need both deep discussion and explicit record-keeping. Use when the user wants to think with you, not just organize notes: run either `discussion mode` for user-vs-AI dialogue or `delegate mode` for AI-vs-subagent autonomous discussion, call `deep-thinker` for the dialogue itself, call `pyramid-principle` to structure the current thinking, keep `discussion.md` updated continuously, and update `draft.md` according to the active mode's approval rule."
+description: "Top-level discussion skill for requests about ideas, proposals, strategies, or directions that need both deep discussion and explicit record-keeping. Use when the user wants to think with you, not just organize notes."
 ---
 
 # Strategic Thinking Partner
@@ -35,6 +35,7 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 - 既存の構成を壊してでも、より強い論理構成を見つけたい
 - いきなり清書せず、問いかけと対案で主張そのものを作り替えたい
 - ユーザーと議論する代わりに、内部で自動的に深掘りしたい
+- `discussion.md` が肥大したので整理したい
 
 逆に、すでに論点が固まっていてそのまま文章化したい場合は、このスキルを使わず通常の文章化フローへ進む。
 
@@ -69,10 +70,11 @@ mode 指定がない場合は、`discussion mode` を使う。
 
 ## 記録ファイル
 
-このスキルでは、必要に応じて 2 つのファイルを扱う。
+このスキルでは、必要に応じて 3 つのファイルを扱う。
 
 - `draft.md`: `pyramid-principle` によって構造化された現行ピラミッド
 - `discussion.md`: 対話の進行、未定義単語、未解決論点を保持する作業メモ
+- `discussion-archive.md`: `discussion.md` から退避した反映済み要素と過去ログの保管場所
 
 `discussion.md` は常に自動更新してよい。  
 一方で `draft.md` に書いてよい内容は active mode によって変わる。
@@ -150,6 +152,11 @@ AI の仮説、未合意の解釈、議論途中の論点を、承認なしに `
 必要なら、新しい質問や未定義単語を積極的に追加する。  
 重要なのは、議論を浅く畳むことではなく、必要な深掘りを逃さないことである。
 
+### 10. context 圧迫を防ぐため、反映済み要素は定期的に archive してよい
+
+`discussion.md` が肥大して context を圧迫するなら、反映済み要素と議論ログを `discussion-archive.md` へ移してよい。  
+ただし、未反映要素は `discussion.md` に残し、未解決論点の探索を失ってはいけない。
+
 ## `discussion.md` の構成
 
 `discussion.md` は、常時更新される作業メモとして少なくとも以下の 4 節を持つ。
@@ -186,6 +193,64 @@ AI の仮説、未合意の解釈、議論途中の論点を、承認なしに `
 ### 4. Answered / Reflected Log
 
 どの回答がいつ得られ、`draft.md` に反映済みかを残す。
+
+## Archive 操作
+
+ユーザーが以下のように言ったら、`discussion.md` の archive 操作を行う。
+
+- `discussionを整理して`
+- `discussion.md を圧縮して`
+- `議論ログを軽くして`
+- `discussion をアーカイブして`
+
+この操作の目的は、`discussion.md` を軽くすることであって、未解決論点を捨てることではない。
+
+### Step 1. `discussion.md` を読む
+
+まず `discussion.md` を読み、各項目に付いている状態を確認する。  
+
+### Step 2. 状態だけを見て archive 対象を特定する
+
+archive 対象は、`draft.md` と読み比べて判定してはいけない。  
+`discussion.md` の各項目に書かれた状態だけを見て、機械的に決める。
+
+archive 対象にしてよいのは、少なくとも以下である。
+
+- `Definitions` のうち `Reflected to Draft: yes` の項目
+- `Question Backlog` のうち `Status: reflected` の項目
+- `Answered / Reflected Log` にある過去の議論ログ
+
+### Step 3. `discussion-archive.md` に移す
+
+特定した archive 対象を `discussion-archive.md` に移す。  
+`discussion-archive.md` がなければ作る。すでに存在するなら追記する。
+
+archive では以下を守る。
+
+- 元の文脈が分かるように、まとまり単位で移す
+- 何を archive したか分かる見出しか区切りを付ける
+- `discussion.md` から消す前に、必要な情報が archive 側へ移っていることを確認する
+
+### Step 4. `discussion.md` には未反映要素だけ残す
+
+archive 後の `discussion.md` には、未反映要素だけを残す。
+
+残すもの:
+
+- `Definitions` のうち `Reflected to Draft: no` の項目
+- `Question Backlog` のうち未反映の項目
+- 今後も掘る必要がある `Active Questions`
+- 空にした `Answered / Reflected Log` 見出し
+
+### Step 5. ログ節は空に戻す
+
+`Answered / Reflected Log` は archive 後に空に戻す。  
+ただし節そのものは消さず、次の議論を記録できる空の状態で残す。
+
+### Step 6. `draft.md` は勝手に書き換えない
+
+archive 操作は、`discussion.md` の圧縮が目的である。  
+別途反映指示がない限り、この操作だけで `draft.md` を新たに書き換えてはいけない。
 
 ## `discussion mode` の手順
 
@@ -352,6 +417,8 @@ AI の仮説、未合意の解釈、議論途中の論点を、承認なしに `
 - 応答の直後に、理解確認や意見表明を飛ばして `draft.md` へ即記録する
 - `deep-thinker` を使わず、思考の深掘りを場当たりで済ませる
 - backlog を早く空にするために、新しい質問や未定義単語の追加を控える
+- archive 時に、未反映要素まで `discussion.md` から消す
+- archive 時に、議論ログを捨てて `discussion-archive.md` へ移さない
 - `delegate mode` でサブエージェントを単なる承認スタンプとして使う
 - `delegate mode` でメイン AI 自身の見解を返さず、Q&A の中継だけで終える
 - 過去に出た深掘りポイントを、確認なしで消す
