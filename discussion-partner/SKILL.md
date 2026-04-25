@@ -8,7 +8,7 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 施策、方針、打ち手、考え方の整理などについて、**より強い結論や論理構成を発見し続ける** ための上位スキル。
 
 このスキルは、思考そのものを担当する基底スキルではない。  
-思考の深掘りは `deep-thinker`、構造化と構造監査は `pyramid-principle` に委ね、このスキルはそれらを束ねながら `draft.md` と `discussion.md` を運用する。
+思考の深掘りは `deep-thinker`、構造化と構造監査は `structured-writing` に委ね、このスキルはそれらを束ねながら `draft.md` と `discussion.md` を運用する。
 
 ## いつ使うか
 
@@ -33,7 +33,7 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 
 このスキルの責務は次の 4 つである。
 
-1. `pyramid-principle` を使って、承認済みの情報を含む現時点の考えを `draft.md` の最適なピラミッドへ再構成する
+1. `structured-writing` を使って、承認済みの情報を含む現時点の考えを `draft.md` の最適な構造へ再構成する
 2. `deep-thinker` を使って、質問と意見表明を通じて、思考を深めたり広げたりする
 3. `discussion.md` に議論ポイント、未定義単語、未解決論点を取りこぼさず記録する
 4. active mode に応じた承認ルールでのみ `draft.md` を更新する
@@ -60,9 +60,9 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 このスキル自身は、思考操作を再定義しない。  
 どの観点で問いを立てるか、どこで曖昧さを止めるか、どこで自分の見解を出すかは `deep-thinker` に従う。
 
-### `pyramid-principle`
+### `structured-writing`
 
-`draft.md` の初期作成や、承認済み内容の構造反映には `pyramid-principle` を使う。  
+`draft.md` の初期作成や、承認済み内容の構造反映には `structured-writing` を使う。  
 ここでいう「構造反映」は、既存ツリーへ最小差分で追記することではない。承認済み情報を加えたうえで、対象サブツリーまたは `draft.md` 全体を読み直し、より強い SCQA とツリー構造へ組み替えることを意味する。
 
 ## 実行ルール
@@ -72,9 +72,9 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 mode 指定がない場合は `discussion mode` を使う。  
 内部的な自動議論やサブエージェント委譲を求められたときだけ `delegate mode` を使う。
 
-### 2. 最初に `pyramid-principle` を使う
+### 2. 最初に `structured-writing` を使う
 
-入力が雑メモ・箇条書き・断片メモである場合、まず `pyramid-principle` を使って `draft.md` を作る。  
+入力が雑メモ・箇条書き・断片メモである場合、まず `structured-writing` を使って `draft.md` を作る。  
 以後の議論は、その `draft.md` を土台として進める。
 
 ただし、この `draft.md` は保存すべき既存構造ではなく、その時点での暫定ベストである。  
@@ -95,14 +95,15 @@ mode 指定がない場合は `discussion mode` を使う。
 `draft.md` に書いてよいのは、その mode で承認された事項だけである。  
 AI の仮説、未合意の解釈、議論途中の論点を、承認なしに `draft.md` に入れてはいけない。
 
-### 6. `draft.md` 反映時は毎回 `pyramid-principle` を再適用する
+### 6. `draft.md` 反映時は毎回 `structured-writing` を再適用する
 
 `draft.md` へ反映するときは、追加情報を既存の枝へ差し込む発想で済ませてはいけない。  
 毎回少なくとも以下を行う。
 
 - 反映対象の情報を含めて、対象範囲の主張を最初から組み直す
 - 親ノードが子ノードの要約になっているか確認する
-- キーノードの粒度と種類が揃っているか確認する
+- 子ノード数が多すぎる箇所を再階層化できているか確認する
+- 途中の階層だけ読んでも意味が通るか確認する
 - 必要なら単一ピラミッドから複数ピラミッドへ、またはその逆へ組み替える
 - 既存の導入や章立てが弱くなったら、SCQA や節構成ごと再設計する
 
@@ -122,5 +123,5 @@ AI の仮説、未合意の解釈、議論途中の論点を、承認なしに `
 - `discussion.md` を更新せず、議論ポイントを会話だけに残す
 - active mode の承認なしに `draft.md` を更新する
 - 範囲指定があるのに、その範囲外の議論まで `draft.md` に反映する
-- `pyramid-principle` を初稿時にしか使わず、以後は既存ツリーへの差し込みだけで済ませる
+- `structured-writing` を初稿時にしか使わず、以後は既存ツリーへの差し込みだけで済ませる
 - 深掘りポイントを出す前に、勝手に探索を打ち切る

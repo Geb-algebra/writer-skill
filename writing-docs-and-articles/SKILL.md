@@ -61,9 +61,9 @@ description: Converting rough notes into structured human-readable documents (bl
 - 長文用途（ブログ・報告書等）かつ材料多 → **Step1へ**
 - 短文用途（メール・チャット等） → **Step3へ**
 
-### 1. 材料整理（Pyramid Principle）
+### 1. 材料整理（Structured Writing）
 
-材料を **Barbara Minto の Pyramid Principle** に従い整理。  
+材料を **structured-writing** に従い整理。  
 結果を **structured.md** として出力。
 
 - 理解・整理手順 → `resources/01_pyramid-structure.md`

@@ -20,12 +20,12 @@
 ## Content
 
 - {Answer}
-  - {Reason A}
-    - Fact A1
-    - Fact A2
-  - Reason B
-    - Fact B1
-    - Fact B2
+  - {Child Node A}
+    - {Detail A1}
+    - {Detail A2}
+  - {Child Node B}
+    - {Detail B1}
+    - {Detail B2}
 
 ## Issues
 

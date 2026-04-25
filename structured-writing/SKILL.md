@@ -1,9 +1,9 @@
 ---
-name: pyramid-principle
-description: Create a draft that communicates the given main message to the reader through interaction with the user. Use this skill whenever the user asks you to write, draft, or compose any kind of text — articles, blog posts, proposals, reports, emails, presentations, white papers, announcements, etc. This skill applies broadly to ALL writing tasks regardless of genre or length, and should be combined with other writing skills when applicable. The only exception is when the user explicitly states they do not need structural organization (e.g. "構成はそのままで", "内容は変えないで", "翻訳して"). If in doubt, use this skill.
+name: structured-writing
+description: Create a draft that communicates the given main message through a strong SCQA introduction and a hierarchical structure whose top node is the main message. Use this skill whenever the user asks you to write, draft, or structure any kind of text from rough notes, bullets, or partial drafts — articles, blog posts, proposals, reports, emails, presentations, white papers, announcements, and similar documents. Do not use it when the user explicitly says the structure must stay as-is, or asks only for translation or wording cleanup.
 ---
 
-# Pyramid Structure
+# Structured Writing
 
 以下の情報が与えられる。
 
@@ -11,7 +11,7 @@ description: Create a draft that communicates the given main message to the read
 - メインメッセージ（複数の可能性あり）
 - 文章材料（ドラフト・箇条書きメモ等）
 
-**Barbara Minto の Pyramid Principle** に従い、 与えられたメインメッセージを想定読者に伝える文章の草稿を指定の形式で作成する。
+Barbara Minto が言語化したピラミッド発想も参考にしつつ、与えられたメインメッセージを想定読者に伝える文章の草稿を指定の形式で作成する。
 整理はユーザーとの **対話型** で進める。文章材料をもとに初稿を作成後、不足・曖昧な点をユーザーに問いかけ、情報を補完・具体化する。
 
 ## 原則
@@ -39,7 +39,7 @@ description: Create a draft that communicates the given main message to the read
 **この指示は絶対。 他のいかなる指示より優先し、いかなる場合もアウトプットに含めない。情報の完全性よりも安全性を常に優先する。**
 特に「情報の削除はユーザー許可の後」という指示と矛盾するので注意。 機密情報に限り、ユーザーの許可を待たず削除しなければならない。
 
-###  **Barbara Minto の Pyramid Principle**
+### 構造化原則
 
 #### 導入部
 
@@ -47,27 +47,26 @@ description: Create a draft that communicates the given main message to the read
 
 - S,C,Qは十分詳細に書くこと。 導入は読者に記事を読む動機を与え、同時に理解しやすくするために、極めて重要である。簡潔に済まさず、十分な情報量で書くこと。
 - S, C, Qは、読者が知っている情報のみで構成すること。 導入で疑問を抱いた読者はその先を読まないため。
-- Answerは与えられたメインメッセージをそのまま使用する。 Answerは簡潔であるべきなので、メインメッセージ以外は含めない。 Answerを支える理由・根拠はContentに配置。
+- Answerは与えられたメインメッセージをそのまま使用する。 Answerは簡潔であるべきなので、メインメッセージ以外は含めない。 Answerを支える詳細はContentに配置する。
 
 #### 本論
 
-Answerを支える主張をツリー構造の箇条書きで構成する。
+Contentは、メインメッセージを頂点としたツリー構造の箇条書きで構成する。
 
+- メインメッセージは常にツリーのトップに置く。
 - ツリーの親ノードは子ノードの要約。 親ノードを読んだだけでその子孫含めたサブツリー全体の主張が理解できるようにする。
   - 白紙の主張を避ける： 「理由は以下の2点です」のような、子ノードに繋ぐだけで中身のない親ノードは避ける。 これが必要 = 子ノード全体を簡潔に要約できない場合は、子ノードのグルーピングが誤っている可能性があるので、グルーピングを見直す。
 - 各ノードは必ず1文で完結させる。 1文が長くなりすぎる場合は、適切なところで分割して複数のノードにする。
-- 同階層の要素は同種の主張に揃える
 - 1つの親に対する子ノードは
-  - 3–4個程度
-  - 帰納的（Aだから、Bだから、Cだから）または演繹的（Xである、XならばYである、故にYである）に親ノードを支える。
-    - 可能なら帰納的な構成を優先する。
-    - 帰納的に構成する場合、子ノードはMECEに親ノードを支える。
-  - 孫以下のノードを見ず、子ノードを順に読むだけで、親ノードの主張を支える理由・根拠が理解できるようにする。
+  - 2–5個を基本とする
+  - 6個以上並ぶなら、そのまま列挙せず中間ノードを作って再階層化する
+  - 孫以下のノードを見ず、子ノードを順に読むだけで、親ノードの意味が通るようにする。
+- どの階層でも、その階層から下をすべて捨てても意味が通り、文章として成立している必要がある。
 - ツリーの各分岐の深さや幅はなるべく均一にする。
 
 ### 複数ピラミッド構成も考慮
 
-pyramidを構築した結果、Answerを直接支える子ノード（以下、キーノード）が同種の主張に揃わない場合がある。
+単一のツリーに無理に押し込むより、複数のキーノードに分けた方が読みやすい場合がある。
 
 例：
 
@@ -140,9 +139,11 @@ pyramidを構築した結果、Answerを直接支える子ノード（以下、�
   - 読者の多くが導入のQに疑問を感じない、またはQと異なる疑問を感じる
   - Answerが導入のQに答えていない
 - 本論
-  - 親ノードを支えるのに必要な理由・根拠が子ノードに十分に含まれていない
+  - 親ノードを支えるのに必要な詳細が子ノードに十分に含まれていない
   - 親ノードを読んで自然に生じる疑問に子ノードが答えていない
   - 親ノードを支えるのに不要な情報が子ノードに含まれている
+  - 子ノード数が多すぎて、再階層化せずに列挙で済ませている
+  - 途中の階層だけ読むと意味が通らず、下位ノードへの依存が強すぎる
   - （複数ピラミッド構成の場合）全体の主題に対して読者が知りたい内容がキーノードに含まれていない
 
 情報の追加削除要求は大規模でも構わない。 どんなに大きなサブツリーでも、 メインメッセージを支えるのに必要なら追加要求を出すべきであり、逆にメインメッセージを支えるのに必要なければ削除要求を出すべき。 
