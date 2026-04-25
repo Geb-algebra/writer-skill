@@ -8,7 +8,7 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 施策、方針、打ち手、考え方の整理などについて、**より強い結論や論理構成を発見し続ける** ための上位スキル。
 
 このスキルは、思考そのものを担当する基底スキルではない。  
-思考の深掘りは `deep-thinker`、構造化と構造監査は `structured-writing` に委ね、このスキルはそれらを束ねながら `draft.md` と `discussion.md` を運用する。
+思考の深掘りは `deep-thinker`、構造化と構造監査は `structured-writing` に委ね、このスキルはそれらを束ねながら `draft.md`、`discussion.md`、`definitions.md` を運用する。
 
 ## いつ使うか
 
@@ -35,15 +35,95 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 
 1. `structured-writing` を使って、承認済みの情報を含む現時点の考えを `draft.md` の最適な構造へ再構成する
 2. `deep-thinker` を使って、質問と意見表明を通じて、思考を深めたり広げたりする
-3. `discussion.md` に議論ポイント、未定義単語、未解決論点を取りこぼさず記録する
+3. `discussion.md` に議論ポイントと未解決論点を、`definitions.md` に厳密定義が必要な用語を取りこぼさず記録する
 4. active mode に応じた承認ルールでのみ `draft.md` を更新する
 
-## 最初に読む resource
+## Mode の選び方
 
-まず [resources/mode-and-artifacts.md](resources/mode-and-artifacts.md) を読む。  
-ここで mode の選択、記録ファイルの役割、共通原則を把握する。
+このスキルには 2 つの mode がある。
 
-その後、状況に応じて以下を読む。
+- `discussion mode`: ユーザーと AI が 1on1 で議論する
+- `delegate mode`: メイン AI とサブエージェントが自動的に議論する
+
+mode 指定がない場合は、`discussion mode` を使う。
+`delegate mode` は、ユーザーが自動的な内部議論やサブエージェント委譲を求めたときに使う。
+
+`discussion mode` は以下のときに使う。
+
+- ユーザー自身と往復しながら考えを深めたい
+- 論点の承認主体をユーザーに置きたい
+- 対話そのものが成果物の一部である
+
+`delegate mode` は以下のときに使う。
+
+- ユーザーとの往復なしで内部的に深掘りしたい
+- 論点を自動的に掘り続けたい
+- `definitions.md`、`discussion.md`、`draft.md` を自律的に前進させたい
+
+## 記録ファイルと最重要ルール
+
+このスキルでは、必要に応じて 4 つのファイルを扱う。
+
+- `definitions.md`: 議論全体で使ってよい厳密用語の辞書
+- `draft.md`: `structured-writing` によって構造化された現行ドラフト
+- `discussion.md`: 対話の進行、質問、回答、未解決論点を保持する作業メモ
+- `discussion-archive.md`: `discussion.md` から退避した反映済み要素と過去ログの保管場所
+
+`definitions.md` は議論を支配する最重要リソースである。
+`definitions.md` にある用語だけが、ごく一般的な意味から外れた厳密な意味を持てる。
+それ以外の言葉は、議論、`discussion.md`、`draft.md`、およびこのスキルを使う AI 自身の思考のすべてで、ごく一般的な意味でしか使ってはいけない。
+AI は出力だけでなく、resource の読解、論点整理、質問生成、仮説形成、反論、構造再編の判断まで、`definitions.md` にある用語と一般意味の単語だけで行わなければならない。
+
+一般的な意味のままでは言いたいことが表現できない、またはある概念を毎回長く説明しないといけないときだけ、新しい用語を `definitions.md` に定義する。
+その定義は AI が提案してもよいし、ユーザーが直接指示してもよい。
+
+`definitions.md` と `discussion.md` は常に自動更新してよい。
+一方で `draft.md` に書いてよい内容は active mode によって変わる。
+
+- `discussion mode`: ユーザーが承認した事項だけ
+- `delegate mode`: サブエージェントが収束と判断し、反映を承認した事項だけ
+
+## 共通原則
+
+### 1. 応答の直後に `draft.md` へ即反映しない
+
+相手が答えたら、その内容をすぐ `draft.md` に書いてはいけない。
+まず `deep-thinker` に従って、その回答の意味を確認し、必要なら聞き返し、その後で AI の考えを述べる。
+
+### 2. 最初に `definitions.md` を読む
+
+`draft.md` や他の resource を読む前に、まず `definitions.md` を読む。
+そこで定義されている用語だけを、その定義に従って解釈する。`definitions.md` にない言葉へ独自の意味を補ってはいけない。
+これは出力時の表現制約ではなく、内部思考と解釈の制約でもある。
+
+議論の初めに `draft.md` や他の resource が与えられた場合は、そこに出てくる厳密用語候補を抽出し、`definitions.md` に ` (proposed)` 付きで追加する。
+この時点ではまだ人間承認前なので、未承認の用語には明示的に ` (proposed)` を付ける。
+
+### 3. 未解決の論点を忘れない
+
+AI は、思いついた深掘りポイントを会話の流れの中で消してはいけない。
+今すぐ掘らない論点も、backlog として保持し続ける。
+
+### 4. 範囲指定があるときは、その範囲の議論だけを `draft.md` に反映する
+
+ここでいう範囲指定は、`draft.md` 上の章や節の範囲ではなく、どの議論までを一旦確定扱いにするかの指定を指す。
+ユーザーが「直前のこの話題はまだ pending だけど、その前までを一旦 draft にして」のように言った場合、pending の話題は `discussion.md` に残し、それより前の承認済み議論だけを `draft.md` に反映する。
+範囲外の議論まで確定済みとして `draft.md` に混ぜてはいけない。
+
+### 5. 結論も構造も変えてよい
+
+議論の途中で結論や構造が変わってよい。重要なのは、各時点の `draft.md` が SCQA と要約ツリーの原則を満たしていることである。
+承認済み情報を `draft.md` に反映するときは、今のツリー構造を守ることを優先してはいけない。既存ツリーへの最小差分の追加ではなく、対象サブツリーまたは全体を再読し、より強い SCQA とツリーへ再構成する。
+
+### 6. context 圧迫を防ぐため、`discussion.md` の反映済み要素は定期的に archive してよい
+
+`discussion.md` が肥大して context を圧迫するなら、反映済み要素と議論ログを `discussion-archive.md` へ移してよい。
+ただし、未反映要素は `discussion.md` に残し、未解決論点の探索を失ってはいけない。
+`definitions.md` は archive してはいけない。
+
+## 追加で読む resource
+
+状況に応じて以下を読む。
 
 - `discussion mode` で進めるなら [resources/discussion-mode.md](resources/discussion-mode.md)
 - `delegate mode` で進めるなら [resources/delegate-mode.md](resources/delegate-mode.md)
@@ -83,13 +163,17 @@ mode 指定がない場合は `discussion mode` を使う。
 
 ### 3. 定義が曖昧なら先に止める
 
-単語の定義が曖昧で論理チェインがつながらない場合は、その単語について先に確認する。  
-定義が揃っていない単語の上に議論を積み上げてはいけない。
+単語の定義が曖昧で論理チェインがつながらない場合は、その単語を `definitions.md` に定義すべきか先に確認する。
+`definitions.md` にない単語へ独自の意味を勝手に載せたまま議論を積み上げてはいけない。
 
-### 4. `discussion.md` は常に更新してよい
+### 4. `discussion.md` と `definitions.md` は常に更新してよい
 
-議論の中で出た定義、質問、回答、AI の見解、未解決論点は、`discussion.md` に常に反映する。  
+議論の中で出た質問、回答、AI の見解、未解決論点は `discussion.md` に、厳密定義が必要な用語は `definitions.md` に常に反映する。
 会話だけに状態を残してはいけない。
+
+`definitions.md` で定義した用語以外の言葉は、議論、`discussion.md`、`draft.md`、およびこのスキルを使う AI 自身の思考のすべてで、ごく一般的な意味でしか使ってはいけない。
+つまり、AI は内部で解釈するときも、判断するときも、論点を組み立てるときも、`definitions.md` にある用語と一般意味の単語だけで考えなければならない。
+一般的な意味のままでは言いたいことが表現できない、または長い説明文を何度も繰り返す必要があるときだけ、新しい単語を定義する。
 
 ### 5. `draft.md` には承認済みの内容だけを書く
 
@@ -112,15 +196,15 @@ AI の仮説、未合意の解釈、議論途中の論点を、承認なしに `
 
 ### 7. backlog を減らすこと自体を目的にしない
 
-`discussion.md` の質問や未定義単語を減らすこと自体を目的にしてはいけない。  
-必要なら、新しい質問や未定義単語を積極的に追加する。
+`discussion.md` の質問や、`definitions.md` に置くべき新語提案を減らすこと自体を目的にしてはいけない。
+必要なら、新しい質問や新しい用語提案を積極的に追加する。
 
 ## してはいけないこと
 
 - `discussion mode` と `delegate mode` を曖昧に混ぜる
 - 応答の直後に、理解確認や意見表明を飛ばして `draft.md` へ即記録する
 - `deep-thinker` を使わず、思考の深掘りを場当たりで済ませる
-- backlog を早く空にするために、新しい質問や未定義単語の追加を控える
+- backlog を早く空にするために、新しい質問や新しい用語提案の追加を控える
 - `discussion.md` を更新せず、議論ポイントを会話だけに残す
 - active mode の承認なしに `draft.md` を更新する
 - 範囲指定があるのに、その範囲外の議論まで `draft.md` に反映する
