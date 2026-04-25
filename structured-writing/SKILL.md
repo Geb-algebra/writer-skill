@@ -1,6 +1,6 @@
 ---
 name: structured-writing
-description: Create a draft that communicates the given main message through a strong SCQA introduction and a hierarchical structure whose top node is the main message. Use this skill whenever the user asks you to write, draft, or structure any kind of text from rough notes, bullets, or partial drafts — articles, blog posts, proposals, reports, emails, presentations, white papers, announcements, and similar documents. Do not use it when the user explicitly says the structure must stay as-is, or asks only for translation or wording cleanup.
+description: Create a draft that communicates the given main message through a strong SCQA introduction and a hierarchical structure whose top node is the main message. Use this skill whenever the user asks you to organize rough notes, bullets, or partial drafts into a coherent structure.
 ---
 
 # Structured Writing
@@ -12,7 +12,6 @@ description: Create a draft that communicates the given main message through a s
 - 文章材料（ドラフト・箇条書きメモ等）
 
 Barbara Minto が言語化したピラミッド発想も参考にしつつ、与えられたメインメッセージを想定読者に伝える文章の草稿を指定の形式で作成する。
-整理はユーザーとの **対話型** で進める。文章材料をもとに初稿を作成後、不足・曖昧な点をユーザーに問いかけ、情報を補完・具体化する。
 
 ## 原則
 
@@ -116,9 +115,6 @@ Contentは、メインメッセージを頂点としたツリー構造の箇条�
 - 追加・補完・推測・意味の拡張など、情報量を増やす変更
 - 具体的な内容を抽象化するなど、情報量を減らす変更
 
-これらの操作が必要な場合、まずはその操作なしでContentを書き、Issueでユーザーに追加・削除を求める。 
-追加・削除を行なった上でIssueで事後的に許可を取るのは禁止。
-
 以下は独断で行なって良い: 
 
 - 並び替え
@@ -126,27 +122,10 @@ Contentは、メインメッセージを頂点としたツリー構造の箇条�
 
 情報量の変更を行う場合は、必ずユーザーに確認し、許可を得ること。 
 
-### 理想の構成に向けた課題を提起する
+### 構造整理に徹する
 
-与えられた材料を構造化するだけでなく、材料自体の追加・削除・具体化の提案も必ず行う。
-ユーザーの最初の入力に、原則に従って文章を書くのに足りない情報・余計な情報は必ず存在する。
-これをユーザーに指摘し、必要な情報の追加・不要な情報の削除を求めることは、**最重要の責務**である。
-
-以下のような観点で課題を特定する。
-
-- 導入
-  - 読者の多くが導入のS, Cに同意できない
-  - 読者の多くが導入のQに疑問を感じない、またはQと異なる疑問を感じる
-  - Answerが導入のQに答えていない
-- 本論
-  - 親ノードを支えるのに必要な詳細が子ノードに十分に含まれていない
-  - 親ノードを読んで自然に生じる疑問に子ノードが答えていない
-  - 親ノードを支えるのに不要な情報が子ノードに含まれている
-  - 子ノード数が多すぎて、再階層化せずに列挙で済ませている
-  - 途中の階層だけ読むと意味が通らず、下位ノードへの依存が強すぎる
-  - （複数ピラミッド構成の場合）全体の主題に対して読者が知りたい内容がキーノードに含まれていない
-
-情報の追加削除要求は大規模でも構わない。 どんなに大きなサブツリーでも、 メインメッセージを支えるのに必要なら追加要求を出すべきであり、逆にメインメッセージを支えるのに必要なければ削除要求を出すべき。 
+このスキルの責務は、与えられた材料を最も筋の通る構造へ並べ替えることである。
+足りない観点の発見、論点の深掘り、別結論の探索、追加情報の聞き出しは責務に含めない。
 
 ## 出力形式
 
@@ -155,7 +134,7 @@ Contentは、メインメッセージを頂点としたツリー構造の箇条�
 - 単一ピラミッド構成の場合は `resources/single-pyramid-template.md`
 - 複数ピラミッド構成の場合は `resources/multiple-pyramid-template.md`
 
-整理結果はIntroductionおよびContentの2節に配置。 加えて、要修正箇所（構成に迷う・うまく構成できていない・情報の追加削除が必要）をIssuesに列挙する。
+整理結果はIntroductionおよびContentの2節に配置。 加えて、要修正箇所（構成に迷う・うまく構成できていない）をIssuesに列挙する。
 
 ## 進め方（対話型フロー）
 
@@ -168,7 +147,7 @@ Contentは、メインメッセージを頂点としたツリー構造の箇条�
 **ユーザーとの対話による最終化**
 
 4. **ユーザー提示**: `draft.md` を提示
-5. **フィードバック取得**: 修正方針・追加・削除などを受け取る
+5. **フィードバック取得**: 構成変更の指示や修正方針を受け取る
 6. **修正**: レビューとフィードバックを反映し再構成。満たせない場合は Issue に列挙
 7. **反復**: ユーザー承認まで 4–5 を繰り返す
 

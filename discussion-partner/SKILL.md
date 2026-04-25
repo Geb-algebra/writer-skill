@@ -64,6 +64,7 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 
 `draft.md` の初期作成や、承認済み内容の構造反映には `structured-writing` を使う。  
 ここでいう「構造反映」は、既存ツリーへ最小差分で追記することではない。承認済み情報を加えたうえで、対象サブツリーまたは `draft.md` 全体を読み直し、より強い SCQA とツリー構造へ組み替えることを意味する。
+一方で、足りない観点の洗い出し、論点の深掘り、追加質問による内容拡張は `structured-writing` の責務ではない。そこはこの `discussion-partner` が担う。
 
 ## 実行ルール
 
