@@ -3,8 +3,7 @@
 ## `definitions.md` の役割
 
 `definitions.md` は、議論全体で使ってよい厳密用語の辞書である。
-ここで定義した用語以外の言葉は、議論、`discussion.md`、`draft.md`、およびこのスキルを使う AI 自身の思考のすべてで、ごく一般的な意味でしか使ってはいけない。
-これは表現上の制約ではなく、解釈、推論、質問生成、判断の制約でもある。
+ここで定義した用語以外の言葉は、返答、`discussion.md`、`draft.md` では、ごく一般的な意味でしか使ってはいけない。
 
 一般的な意味のままでは言いたいことが表現できない、またはある概念を説明するのに長い説明文を毎回繰り返す必要があるときだけ、新しい単語を定義する。
 
@@ -78,70 +77,6 @@ AI が提案したが人間がまだ承認していない用語には、行末�
 
 どの回答がいつ得られ、`draft.md` に反映済みかを残す。
 
-## archive 操作
-
-ユーザーが以下のように言ったら、`discussion.md` の archive 操作を行う。
-
-- `discussionを整理して`
-- `discussion.md を圧縮して`
-- `議論ログを軽くして`
-- `discussion をアーカイブして`
-
-この操作の目的は、`discussion.md` を軽くすることであって、未解決論点を捨てることではない。
-
-### Step 1. `discussion.md` を読む
-
-まず `discussion.md` を読み、各項目に付いている状態を確認する。
-
-### Step 2. 状態だけを見て archive 対象を特定する
-
-archive 対象は、`draft.md` と読み比べて判定してはいけない。  
-`discussion.md` の各項目に書かれた状態だけを見て、機械的に決める。
-
-archive 対象にしてよいのは、少なくとも以下である。
-
-- `Question Backlog` のうち `Status: reflected` の項目
-- `Answered / Reflected Log` にある過去の議論ログ
-
-### Step 3. `discussion-archive.md` に移す
-
-特定した archive 対象を `discussion-archive.md` に移す。  
-`discussion-archive.md` がなければ作る。すでに存在するなら追記する。
-
-archive では以下を守る。
-
-- 元の文脈が分かるように、まとまり単位で移す
-- 何を archive したか分かる見出しか区切りを付ける
-- `discussion.md` から消す前に、必要な情報が archive 側へ移っていることを確認する
-
-### Step 4. `discussion.md` には未反映要素だけ残す
-
-archive 後の `discussion.md` には、未反映要素だけを残す。
-
-残すもの:
-
-- `Question Backlog` のうち未反映の項目
-- 今後も掘る必要がある `Active Questions`
-- 空にした `Answered / Reflected Log` 見出し
-
-### Step 5. ログ節は空に戻す
-
-`Answered / Reflected Log` は archive 後に空に戻す。  
-ただし節そのものは消さず、次の議論を記録できる空の状態で残す。
-
-### Step 6. `draft.md` は勝手に書き換えない
-
-archive 操作は、`discussion.md` の圧縮が目的である。  
-別途反映指示がない限り、この操作だけで `draft.md` を新たに書き換えてはいけない。
-
-### Step 7. `definitions.md` は archive しない
-
-`definitions.md` は議論を支配する重要なリソースなので、archive してはいけない。
-今ある `discussion.md` の archive 処理を `definitions.md` に適用してはいけない。
-
 ## してはいけないこと
 
-- archive 時に、未反映要素まで `discussion.md` から消す
-- archive 時に、議論ログを捨てて `discussion-archive.md` へ移さない
 - 過去に出た深掘りポイントを、確認なしで消す
-- `definitions.md` の内容を `discussion-archive.md` へ移す

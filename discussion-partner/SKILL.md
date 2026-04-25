@@ -23,7 +23,6 @@ description: "Top-level discussion skill for requests about ideas, proposals, st
 - 既存の構成を壊してでも、より強い論理構成を見つけたい
 - いきなり清書せず、問いかけと対案で主張そのものを作り替えたい
 - ユーザーと議論する代わりに、内部で自動的に深掘りしたい
-- `discussion.md` が肥大したので整理したい
 
 逆に、すでに論点が固まっていてそのまま文章化したい場合は、このスキルを使わず通常の文章化フローへ進む。
 
@@ -62,17 +61,15 @@ mode 指定がない場合は、`discussion mode` を使う。
 
 ## 記録ファイルと最重要ルール
 
-このスキルでは、必要に応じて 4 つのファイルを扱う。
+このスキルでは、必要に応じて 3 つのファイルを扱う。
 
 - `definitions.md`: 議論全体で使ってよい厳密用語の辞書
 - `draft.md`: `structured-writing` によって構造化された現行ドラフト
 - `discussion.md`: 対話の進行、質問、回答、未解決論点を保持する作業メモ
-- `discussion-archive.md`: `discussion.md` から退避した反映済み要素と過去ログの保管場所
 
 `definitions.md` は議論を支配する最重要リソースである。
 `definitions.md` にある用語だけが、ごく一般的な意味から外れた厳密な意味を持てる。
-それ以外の言葉は、議論、`discussion.md`、`draft.md`、およびこのスキルを使う AI 自身の思考のすべてで、ごく一般的な意味でしか使ってはいけない。
-AI は出力だけでなく、resource の読解、論点整理、質問生成、仮説形成、反論、構造再編の判断まで、`definitions.md` にある用語と一般意味の単語だけで行わなければならない。
+それ以外の言葉は、返答、`discussion.md`、`draft.md` では、ごく一般的な意味でしか使ってはいけない。
 
 一般的な意味のままでは言いたいことが表現できない、またはある概念を毎回長く説明しないといけないときだけ、新しい用語を `definitions.md` に定義する。
 その定義は AI が提案してもよいし、ユーザーが直接指示してもよい。
@@ -94,7 +91,6 @@ AI は出力だけでなく、resource の読解、論点整理、質問生成�
 
 `draft.md` や他の resource を読む前に、まず `definitions.md` を読む。
 そこで定義されている用語だけを、その定義に従って解釈する。`definitions.md` にない言葉へ独自の意味を補ってはいけない。
-これは出力時の表現制約ではなく、内部思考と解釈の制約でもある。
 
 議論の初めに `draft.md` や他の resource が与えられた場合は、そこに出てくる厳密用語候補を抽出し、`definitions.md` に ` (proposed)` 付きで追加する。
 この時点ではまだ人間承認前なので、未承認の用語には明示的に ` (proposed)` を付ける。
@@ -125,19 +121,13 @@ AI は、思いついた深掘りポイントを会話の流れの中で消し�
 
 `draft.md` を編集したら、その直後に必ず structured-writing の原則を満たしているか確認する。
 
-### 8. context 圧迫を防ぐため、`discussion.md` の反映済み要素は定期的に archive してよい
-
-`discussion.md` が肥大して context を圧迫するなら、反映済み要素と議論ログを `discussion-archive.md` へ移してよい。
-ただし、未反映要素は `discussion.md` に残し、未解決論点の探索を失ってはいけない。
-`definitions.md` は archive してはいけない。
-
 ## 追加で読む resource
 
 状況に応じて以下を読む。
 
 - `discussion mode` で進めるなら [resources/discussion-mode.md](resources/discussion-mode.md)
 - `delegate mode` で進めるなら [resources/delegate-mode.md](resources/delegate-mode.md)
-- `discussion.md` を新規作成・更新・整理・archive するなら [resources/discussion-log.md](resources/discussion-log.md)
+- `discussion.md` と `definitions.md` の運用を扱うなら [resources/discussion-log.md](resources/discussion-log.md)
 
 必要な resource だけを読む。全部を毎回読む必要はない。
 
@@ -181,8 +171,7 @@ mode 指定がない場合は `discussion mode` を使う。
 議論の中で出た質問、回答、AI の見解、未解決論点は `discussion.md` に、厳密定義が必要な用語は `definitions.md` に常に反映する。
 会話だけに状態を残してはいけない。
 
-`definitions.md` で定義した用語以外の言葉は、議論、`discussion.md`、`draft.md`、およびこのスキルを使う AI 自身の思考のすべてで、ごく一般的な意味でしか使ってはいけない。
-つまり、AI は内部で解釈するときも、判断するときも、論点を組み立てるときも、`definitions.md` にある用語と一般意味の単語だけで考えなければならない。
+`definitions.md` で定義した用語以外の言葉は、返答、`discussion.md`、`draft.md` では、ごく一般的な意味でしか使ってはいけない。
 一般的な意味のままでは言いたいことが表現できない、または長い説明文を何度も繰り返す必要があるときだけ、新しい単語を定義する。
 
 ### 5. `draft.md` には承認済みの内容だけを書く
