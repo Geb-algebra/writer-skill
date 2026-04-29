@@ -21,7 +21,7 @@
 
 <!-- DO NOT write anything here -->
 
-### Title of Key Node 1 (One Word or Short Phrase)
+### Title of Key Node 1 (Short Phrase)
 
 - {Key Node 1}
   - {Child Node A}
@@ -33,11 +33,9 @@
 
 {次の節へつなぐ短い問い}
 
-### Title of Key Node 2 (One Word or Short Phrase)
+### Title of Key Node 2 (Short Phrase)
 
-{前節末尾の問いへの短い答え}
-
-- {Key Node 2}
+- {Key Node 2: 前節末尾の問いへの答えになる主張}
   - {Child Node A}
     - {Detail A1}
     - {Detail A2}
@@ -47,11 +45,9 @@
 
 {次の節へつなぐ短い問い}
 
-### Title of Key Node 3 (One Word or Short Phrase)
+### Title of Key Node 3 (Short Phrase)
 
-{前節末尾の問いへの短い答え}
-
-- {Key Node 3}
+- {Key Node 3: 前節末尾の問いへの答えになる主張}
   - {Child Node A}
     - {Detail A1}
     - {Detail A2}
