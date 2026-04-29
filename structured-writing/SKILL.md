@@ -1,6 +1,6 @@
 ---
 name: structured-writing
-description: Create a draft that communicates the given main message through a strong SCQA introduction and a hierarchical structure whose top node is the main message. Use this skill whenever the user asks you to organize rough notes, bullets, or partial drafts into a coherent structure.
+description: Create a draft that communicates the given main message through a strong SCQA introduction and either a single pyramid or multiple linked pyramids. Use this skill whenever the user asks you to organize rough notes, bullets, or partial drafts into a coherent structure without losing source information.
 ---
 
 # Structured Writing
@@ -56,6 +56,7 @@ Contentは、メインメッセージを頂点としたツリー構造の箇条�
 
 - メインメッセージは常にツリーのトップに置く。
 - ピラミッド階層は多くても4段にする。 5段以上の階層が必要になる場合は、そのまま深くせず、グルーピング・節分け・複数ピラミッド化のいずれかで再構成する。
+- 単一ピラミッドは、入力された文章材料を余裕を持って全て配置できる場合だけ採用する。 4段以内・子ノード4個以内に収めるために、具体情報を落とす・複数の主張を1ノードに詰め込む・関係の薄い材料を同じ分岐に入れる必要がある場合は、すぐ複数ピラミッド構成へ切り替える。
 - ツリーの各分岐の深さや幅はなるべく均一にする。
 
 ##### ノード
@@ -75,9 +76,10 @@ Contentは、メインメッセージを頂点としたツリー構造の箇条�
 - 1つの親に対する子ノードは2–4個を基本とする。 5個以上並ぶなら再構成。
 - 同じ親を持つ子ノードは、既知の情報から新しい情報へ展開する順序で並べる。 対比・因果・追加・言い換えなどの関係が曖昧になる場合は、ノード内で接続関係を明示する。
 
-### 複数ピラミッド構成も考慮
+### 複数ピラミッド構成への切り替え
 
 単一のツリーに無理に押し込むより、複数のキーノードに分けた方が読みやすい場合がある。
+特に、4段以内・子ノード4個以内の単一ピラミッドでは入力情報を落とさず自然に配置できない場合は、単一ピラミッドに固執せず、すぐ複数ピラミッド構成にする。
 
 例：
 
@@ -86,16 +88,20 @@ Contentは、メインメッセージを頂点としたツリー構造の箇条�
   - fooが有効な理由は、~ である。
   - fooするにはA, B, Cのステップで進めれば良い。
 
-この場合、キーノードそれぞれを頂点とした複数のピラミッドを構築し、それらをAnswerに繋げる構成も考慮する。
+この場合、キーノードそれぞれを頂点とした複数のピラミッドを構築し、それらをAnswerに繋げる構成を採用する。
 
-この場合、各キーノードの導入 (SCQA) も書く必要がある。
-ただし、キーノードの内容は全体のAnswerとは異なり、詳細な導入がなくても読者が自然に知りたくなる。
-そのため、簡潔に全体の導入あるいは前のキーノードを振り返り、当該キーノードに繋ぐだけ。
+複数ピラミッド構成では、各キーノードにSCQA導入を書かない。
+全体のSCQAは `Introduction` だけに置き、本論内の各ピラミッドはキーノードを頂点としたツリーに集中させる。
 
-例： ここまでで、fooとは何かを説明しました。 では、なぜfooが有効なのでしょうか？ その理由は、~ です。
+代わりに、各ピラミッドの末尾に次の節へつなぐ短い問いを置き、次のピラミッドの冒頭でその問いに答える。
 
-キーノードに長い導入を書いてはいけない。 
-長い導入が必要になる場合は、全体の導入が不足している・キーノード間の関連が薄い・本論に書くべき内容を導入に書いている などの可能性があるため、構成を見直す必要がある。
+例：
+
+- ピラミッド末尾の問い: ここまでで、fooの原則を見てきました。 では、実際にはどのように実装すればよいのでしょうか？
+- 次のピラミッド冒頭の答え: fooは、A、B、Cの順に進めることで実装できます。
+
+この接続は短く書く。
+長い導入が必要になる場合は、全体の導入が不足している・キーノード間の関連が薄い・本論に書くべき内容を接続文に書いている などの可能性があるため、構成を見直す必要がある。
 
 ### 単語の用法
 

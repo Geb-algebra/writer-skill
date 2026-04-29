@@ -23,8 +23,6 @@
 
 ### Title of Key Node 1 (One Word or Short Phrase)
 
-{SCQA for Key Node 1 (Required)}
-
 - {Key Node 1}
   - {Child Node A}
     - {Detail A1}
@@ -33,9 +31,11 @@
     - {Detail B1}
     - {Detail B2}
 
+{次の節へつなぐ短い問い}
+
 ### Title of Key Node 2 (One Word or Short Phrase)
 
-{SCQA for Key Node 2 (Required)}
+{前節末尾の問いへの短い答え}
 
 - {Key Node 2}
   - {Child Node A}
@@ -45,9 +45,11 @@
     - {Detail B1}
     - {Detail B2}
 
+{次の節へつなぐ短い問い}
+
 ### Title of Key Node 3 (One Word or Short Phrase)
 
-{SCQA for Key Node 3 (Required)}
+{前節末尾の問いへの短い答え}
 
 - {Key Node 3}
   - {Child Node A}
