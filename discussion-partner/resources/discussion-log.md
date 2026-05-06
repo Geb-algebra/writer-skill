@@ -53,29 +53,29 @@ AI が提案したが人間がまだ承認していない用語には、行末�
 
 ## `discussion.md` の構成
 
-`discussion.md` は、常時更新される作業メモとして少なくとも以下の 3 節を持つ。
+`discussion.md` は、常時更新される作業メモとして以下の 3 節を持つ。
 
 ## 1. Question Backlog
 
-深掘りポイントをすべて貯める場所。各項目は以下を持つ。
+未解決論点、後で戻るべき観点、保留した問いを貯める場所。
+各項目は以下を持つ。
 
 - `ID`
-- `Operation`: その問いを生んだ `deep-thinker` の思考操作名。なければ `none`
-- `Target`
 - `Question`
-- `Why This Matters`
-- `Priority`
+- `Context`
 - `Status`: `open` / `active` / `answered` / `reflected` / `parked` / `dropped`
+- `Notes`
 
 `parked` は「重要だが今は掘らない」、`dropped` は「不要と判断した」を意味する。
 
 ## 2. Active Questions
 
-現時点で、次に掘る候補として残しておく問い。
+現時点で、次に扱う候補として残しておく問い。
+どの問いを扱うか、どの順番で扱うかは固定しない。
 
 ## 3. Answered / Reflected Log
 
-どの回答がいつ得られ、`draft.md` に反映済みかを残す。
+どの回答、判断、決定が得られ、`draft.md` に反映済みかを残す。
 
 ## してはいけないこと
 
